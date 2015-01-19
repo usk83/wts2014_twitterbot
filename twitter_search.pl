@@ -159,7 +159,7 @@ for my $status (@{$res->{statuses}})
 	#すでにRTしてないもの、ログより古いものは除く
 	if(!$posted{$status->{id}}){ # $max_id < $status->{id}
 
-		if(index($status->{text},"http://") != -1){
+		if(index($status->{entities}->{media}[0]->{display_url},"pic.twitter.com") != -1){
 			$url_flg = 1;
 		}
 
