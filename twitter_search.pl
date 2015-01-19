@@ -167,15 +167,15 @@ for my $status (@{$res->{statuses}})
 			# print "pos_hash:" . "$pos_hash{$key}" . "key:" . "$key";
 			if(index($status->{text},$key) != -1){
 				$pos *= $pos_hash{$key};
-			}		
+			}
 		}
 		foreach my $key(keys(%pos_bio_hash)) {
 			# print "pos_hash:" . "$pos_hash{$key}" . "key:" . "$key";
 			if(index($status->{user}->{description},$key) != -1){
 				$pos *= $pos_bio_hash{$key};
-			}	
-		}		
-		
+			}
+		}
+
 		foreach my $key(keys(%neg_hash)) {
 			# print "neg_hash:" . "$neg_hash{$key}" . "key:" . "$key";
 			if(index($status->{text},$key) != -1){
@@ -190,7 +190,7 @@ for my $status (@{$res->{statuses}})
 		}
 
 		#条件指定
-		if( $neg == 1 && $pos > 3000 && $url_flg){# && $status->{favorite_count} > 3 
+		if( $neg == 1 && $pos > 3000 && $url_flg){# && $status->{favorite_count} > 3
 			$max_id = $status->{id};
 			push(@retweet_lists,$status->{id});
 			push(@debug_statuses,$status);
@@ -229,7 +229,7 @@ if(defined($tmp_since_id))
 my $x = 0;
 #リストの内容を表示（デバッグ用）
 for my $debug_status(@debug_statuses) {
-	
+
 
 	print("($i)\@$debug_status->{user}->{screen_name}: $debug_status->{text}\
 	\n$debug_status->{created_at}\n\
